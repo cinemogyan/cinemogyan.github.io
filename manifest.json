@@ -1,0 +1,20 @@
+{
+  "name": "Cinemogyan",
+  "short_name": "Cinemogyan",
+  "start_url": "https://www.cinemogyan.xyz/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCjMhJMTPidgQGhHLyMurPSweTnp4iviVnVwlrQCD-qOdH8wJNjV6zGSAINRHCIrkJ8WHmqg1HTpdHzy0aqxdpw84IaW7KaCuuaGUhp0IwfSGL6_bn-vtuESlVwhlADrlsLyfPTD85v0m26JlueMHml6sF6DFebjdkzWvAGFcqhidHsoA/s1600/Picsart_25-04-03_18-02-33-490.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCjMhJMTPidgQGhHLyMurPSweTnp4iviVnVwlrQCD-qOdH8wJNjV6zGSAINRHCIrkJ8WHmqg1HTpdHzy0aqxdpw84IaW7KaCuuaGUhp0IwfSGL6_bn-vtuESlVwhlADrlsLyfPTD85v0m26JlueMHml6sF6DFebjdkzWvAGFcqhidHsoA/s1600/Picsart_25-04-03_18-02-33-490.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
