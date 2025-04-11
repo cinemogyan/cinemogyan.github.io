@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cinemogyan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Manifest file for PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Splash screen styles -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #splash-screen img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GIF Splash Screen -->
+  <div id="splash-screen">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0QMlFq0U0mvF6c_y6Q4Rr5sRDQfqlXlvK02f5LV-mDp6Kdsg4rspNTLgJ_Q67Yf5RAwxAgTFb315u9d2vvUsHtX3OSGvnTsN7w_Mqol9MHK7uP-No-i3jyryihzFVeZad-Jma6fHiv9vTf8Wx0-cM3uWwVh9fI5FqX90iasJl_-JxJWE/s1600/km_20250411_480p_15f_20250411_233612.gif" alt="Loading...">
+  </div>
+
+  <!-- App Content -->
+  <div class="content">
+    <h1>Welcome to Cinemogyan</h1>
+    <p>Explore horror movies, reviews, and more!</p>
+  </div>
+
+  <!-- Hide splash after load -->
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("splash-screen").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
