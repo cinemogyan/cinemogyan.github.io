@@ -1,20 +1,20 @@
 {
-  "name": "Cinemogyan",
-  "short_name": "Cinemogyan",
+  "name": "MwsGuy",
+  "short_name": "MwsGuy",
   "start_url": "https://www.cinemogyan.xyz/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCjMhJMTPidgQGhHLyMurPSweTnp4iviVnVwlrQCD-qOdH8wJNjV6zGSAINRHCIrkJ8WHmqg1HTpdHzy0aqxdpw84IaW7KaCuuaGUhp0IwfSGL6_bn-vtuESlVwhlADrlsLyfPTD85v0m26JlueMHml6sF6DFebjdkzWvAGFcqhidHsoA/s1600/Picsart_25-04-03_18-02-33-490.png",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicZEiQIA0ZlXS23-YzCy7IGFL826DCFQYwLnsra9vHyXfHEzb5bp94ce9NMd1Z58b3q-XoWVTZqB6CJPwX8Jw9M5U2IaoQ529mpEu42KZUcqYDpgHxkep19CNIhWCiXjXA2wIvchRXaZ4H0-OW5dvE8Pi7ODDFV5SrRPxtuu1LKeB3Fmhyw5bZtOvBztk/s3464/Picsart_25-09-26_12-05-21-562.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_UgvCiE-TDcasB0JxF37w2E5dk7kpzLwzBMN3B3pUmziJHddFc5Bgpivcj2kI6iaBkNnO91DCQQqLjn6QCU4Pj5YWTn9wC9a42kXeuXPbNkTGS-YYmb_XIEa7Gg-MA8bIzCEdWOM2TOji1pFW7dPyETtrt5Rja99XL_e_nP6-e1Ago28/s1600/Screenshot_2025-04-12-00-19-44-984_com.miui.gallery.jpg",
-      "sizes": "",
-      "type": "image/png"
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0QMlFq0U0mvF6c_y6Q4Rr5sRDQfqlXlvK02f5LV-mDp6Kdsg4rspNTLgJ_Q67Yf5RAwxAgTFb315u9d2vvUsHtX3OSGvnTsN7w_Mqol9MHK7uP-No-i3jyryihzFVeZad-Jma6fHiv9vTf8Wx0-cM3uWwVh9fI5FqX90iasJl_-JxJWE/s1600/km_20250411_480p_15f_20250411_233612.gif",
+      "sizes": "320x400",
+      "type": "gif/image/png"
     }
   ]
 }
