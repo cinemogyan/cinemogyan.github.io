@@ -1,14 +1,14 @@
 {
   "name": "MwsGuy",
   "short_name": "MwsGuy",
-  "start_url": "https://www.cinemogyan.xyz/",
+  "start_url": "https://www.mwsguy.com/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicZEiQIA0ZlXS23-YzCy7IGFL826DCFQYwLnsra9vHyXfHEzb5bp94ce9NMd1Z58b3q-XoWVTZqB6CJPwX8Jw9M5U2IaoQ529mpEu42KZUcqYDpgHxkep19CNIhWCiXjXA2wIvchRXaZ4H0-OW5dvE8Pi7ODDFV5SrRPxtuu1LKeB3Fmhyw5bZtOvBztk/s3464/Picsart_25-09-26_12-05-21-562.jpg",
-      "sizes": "192x192",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBZ3EqSLMih6wsVWPPoo1YU5M8_xh_un2a24YMar3fjyJX3lhVkNDXQR0MmLvws0X5ee-dTlvnZwpy9uTCPz_cdNnBcmh7o7Cor-0vSNDKNCkfC4KFd0RvP8Qk28_UTA7H0nuOvir5LmUq0tQlRPz9bjv9Y6rGnb0YzpApMwh66TiZNnjGFy-gZHv9dQU/s512/playstore.png",
+      "sizes": "512x512",
       "type": "image/png"
     },
     {
