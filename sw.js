@@ -4,11 +4,11 @@
 const CACHE_NAME = "mwsguy-partial-cache-v1";
 const PAGES_TO_CACHE = [
   "/", 
-  "/how-to-use-mwsguy-video-streaming-tool",
-  "/you-unlocked-video-streaming-tool",
+  "/p/how-to-use-mwsguy-video-streaming-tool",
+  "/p/you-unlocked-video-streaming-tool",
   "/?m=1"
-  "/collection-hub",
-  "/all-tool-and-pages"
+  "/p/collection-hub",
+  "/p/all-tool-and-pages"
 ];
 
 self.addEventListener("install", (event) => {
