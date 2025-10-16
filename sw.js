@@ -1,4 +1,3 @@
-
 // sw.js — Service Worker for www.mwsguy.com
 
 const CACHE_NAME = "mwsguy-partial-cache-v1";
@@ -6,12 +5,13 @@ const PAGES_TO_CACHE = [
   "/", 
   "/how-to-use-mwsguy-video-streaming-tool",
   "/you-unlocked-video-streaming-tool",
-  "/?m=1"
+  "/?m=1",
   "/collection-hub",
   "/all-tool-and-pages"
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PAGES_TO_CACHE))
   );
@@ -19,15 +19,21 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      }))
-    )
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        })
+      );
+      await self.clients.claim();
+    })()
   );
 });
 
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {
