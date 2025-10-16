@@ -1,17 +1,18 @@
 // main.js — SPA + Preload for www.mwsguy.com
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("https://cinemogyan.github.io/sw.js")
-      .then(() => console.log("✅ Service Worker registered"))
-      .catch((err) => console.error("SW registration failed:", err));
-  });
-}
-
 // Partial SPA + preload
 (function(){
-  const pagesToPreload = ["/","/?m=1","/p/you-unlocked-video-streaming-tool.html","/p/you-unlocked-video-streaming-tool.html?m=1","/p/how-to-use-mwsguy-video-streaming-tool.html","/p/how-to-use-mwsguy-video-streaming-tool.html?m=1","/p/collection-hub.html","/p/collection-hub.html?m=1","/p/all-tool-and-pages.html","/p/all-tool-and-pages.html?m=1"];
+  const pagesToPreload = [
+    "/", "/?m=1",
+    "/p/you-unlocked-video-streaming-tool.html",
+    "/p/you-unlocked-video-streaming-tool.html?m=1",
+    "/p/how-to-use-mwsguy-video-streaming-tool.html",
+    "/p/how-to-use-mwsguy-video-streaming-tool.html?m=1",
+    "/p/collection-hub.html",
+    "/p/collection-hub.html?m=1",
+    "/p/all-tool-and-pages.html",
+    "/p/all-tool-and-pages.html?m=1"
+  ];
   const MAIN_CONTENT_ID = 'main-content';
   const cache = {};
 
@@ -26,4 +27,3 @@ if ("serviceWorker" in navigator) {
   window.addEventListener('popstate',function(e){ const url=(e.state&&e.state.url)?e.state.url:currentPath(); if(cache[url]) replaceMainContent(cache[url]); else window.location.href=url; });
   document.addEventListener('DOMContentLoaded',preloadAll);
 })();
-
