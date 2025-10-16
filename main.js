@@ -11,7 +11,7 @@ if ("serviceWorker" in navigator) {
 
 // Partial SPA + preload
 (function(){
-  const pagesToPreload = ["/","/vs-tool","/guide","/collection-hub","/all-tools"];
+  const pagesToPreload = ["/","/?m=1","/p/you-unlocked-video-streaming-tool.html","/p/you-unlocked-video-streaming-tool.html?m=1","/p/how-to-use-mwsguy-video-streaming-tool.html","/p/how-to-use-mwsguy-video-streaming-tool.html?m=1","/p/collection-hub.html","/p/collection-hub.html?m=1","/p/all-tool-and-pages.html","/p/all-tool-and-pages.html?m=1"];
   const MAIN_CONTENT_ID = 'main-content';
   const cache = {};
 
