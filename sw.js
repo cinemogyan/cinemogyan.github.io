@@ -1,55 +1,72 @@
-const CACHE_NAME = "mws-cache-v1";
-const HOME_URL = "/?m=1"; // Blogger mobile view ke liye
+// sw.js — MwsGuy Offline Cache Fix
+const CACHE_NAME = "mwsguy-cache-v5";
 
-// Cache karne wale URLs
-const urlsToCache = [
-  HOME_URL,
-  "/", // safety ke liye normal version bhi
+const PAGES_TO_CACHE = [
+  "/",
+  "/?m=1",
+  "/p/how-to-use-mwsguy-video-streaming-tool.html",
+  "/p/how-to-use-mwsguy-video-streaming-tool.html?m=1",
+  "/p/you-unlocked-video-streaming-tool.html",
+  "/p/you-unlocked-video-streaming-tool.html?m=1",
+  "/p/collection-hub.html",
+  "/p/collection-hub.html?m=1",
+  "/p/all-tool-and-pages.html",
+  "/p/all-tool-and-pages.html?m=1"
 ];
 
-// Install event – Home page cache karo
-self.addEventListener("install", event => {
+// ✅ Install phase
+self.addEventListener("install", (event) => {
+  console.log("🟢 Installing SW & caching pages...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(PAGES_TO_CACHE);
     })
   );
   self.skipWaiting();
 });
 
-// Activate event – purane cache delete karo
-self.addEventListener("activate", event => {
+// ✅ Activate phase
+self.addEventListener("activate", (event) => {
+  console.log("🟢 Activating SW...");
   event.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys().then((names) => {
       return Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
+        names.map((name) => {
+          if (name !== CACHE_NAME) return caches.delete(name);
+        })
       );
     })
   );
   self.clients.claim();
 });
 
-// Fetch event – pehle cache check karo, fir network
-self.addEventListener("fetch", event => {
+// ✅ Fetch phase
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
   event.respondWith(
-    caches.match(event.request).then(response => {
-      // Agar cache me mil gaya to use return karo
-      if (response) {
-        return response;
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
+      if (cachedResponse) {
+        console.log("✅ Cache hit:", event.request.url);
+        return cachedResponse;
       }
 
-      // Agar network se mile to use cache me add karo
-      return fetch(event.request).then(fetchResponse => {
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, fetchResponse.clone());
-          return fetchResponse;
+      return fetch(event.request)
+        .then((networkResponse) => {
+          if (!networkResponse || networkResponse.status !== 200) {
+            console.warn("⚠️ Network failed:", event.request.url);
+            return networkResponse;
+          }
+
+          const clonedResponse = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clonedResponse));
+
+          return networkResponse;
+        })
+        .catch(() => {
+          console.warn("📴 Offline fallback triggered:", event.request.url);
+          return caches.match("/", { ignoreSearch: true });
         });
-      }).catch(() => {
-        // Agar offline hai aur page cache me nahi mila
-        // to home page ko fallback ke roop me dikhao
-        return caches.match(HOME_URL);
-      });
     })
   );
 });
