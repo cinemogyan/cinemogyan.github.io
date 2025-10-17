@@ -72,7 +72,7 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(() => {
           // 🔹 Offline fallback (agar chaho to ek offline.html add kar sakte ho)
-          return caches.match("/?m=1");
+          return caches.match("/");
         });
     })
   );
