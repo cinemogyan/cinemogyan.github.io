@@ -1,8 +1,7 @@
 // sw.js — Service Worker for www.mwsguy.com
+const CACHE_NAME = "mwsguy-cache-v3";
 
-const CACHE_NAME = "mwsguy-cache-v2";
-
-// ✅ Yahan sirf wahi pages daal jo tumhare visitors zyada kholte hain
+// ✅ Ye wahi pages cache karenge jo visitors zyada kholte hain
 const PAGES_TO_CACHE = [
   "/", 
   "/?m=1",
@@ -16,7 +15,7 @@ const PAGES_TO_CACHE = [
   "/p/all-tool-and-pages.html?m=1"
 ];
 
-// ✅ Install phase — Cache basic pages
+// ✅ Install phase — Cache important pages
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -26,7 +25,7 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// ✅ Activate phase — Purane cache delete karo
+// ✅ Activate phase — Old caches delete
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -42,21 +41,20 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// ✅ Fetch phase — Cache se serve karo, agar na mile to network se lo
+// ✅ Fetch phase — Serve cache first, network fallback
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
-  // Sirf GET requests cache honge
   if (request.method !== "GET") return;
 
   event.respondWith(
-    caches.match(request).then((response) => {
+    caches.match(request, { ignoreSearch: true }).then((response) => {
       if (response) {
         // 🔹 Cache hit
         return response;
       }
 
-      // 🔹 Network se fetch karo aur cache me save karo
+      // 🔹 Network fetch + cache store
       return fetch(request)
         .then((networkResponse) => {
           if (!networkResponse || networkResponse.status !== 200) {
@@ -71,8 +69,8 @@ self.addEventListener("fetch", (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // 🔹 Offline fallback (agar chaho to ek offline.html add kar sakte ho)
-          return caches.match("/");
+          // 🔹 Offline fallback: home page cache
+          return caches.match("/", { ignoreSearch: true });
         });
     })
   );
