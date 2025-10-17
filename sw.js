@@ -1,9 +1,9 @@
-// sw.js — Service Worker for www.mwsguy.com
-const CACHE_NAME = "mwsguy-cache-final-v1";
+// sw.js — Final Service Worker for www.mwsguy.com
+const CACHE_NAME = "mwsguy-cache-final-v2";
 
-// ✅ Ye wahi pages cache karenge jo visitors zyada kholte hain
+// Pages to cache
 const PAGES_TO_CACHE = [
-  "/", 
+  "/",
   "/?m=1",
   "/index.html",
   "/index.html?m=1",
@@ -17,7 +17,7 @@ const PAGES_TO_CACHE = [
   "/p/all-tool-and-pages.html?m=1"
 ];
 
-// ✅ Install phase — Cache important pages
+// Install event — cache important pages
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PAGES_TO_CACHE))
@@ -25,7 +25,7 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// ✅ Activate phase — Delete old caches
+// Activate event — delete old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) =>
@@ -39,7 +39,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// ✅ Fetch phase — Serve cache first, network fallback
+// Fetch event — serve cache first, fallback to home page if offline
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
@@ -47,18 +47,15 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(request, { ignoreSearch: true }).then((response) => {
-      if (response) {
-        // 🔹 Cache hit
-        return response;
-      }
+      if (response) return response; // cache hit
 
-      // 🔹 Home page fallback for mobile/desktop
+      // If home page request, serve home page cache
       const url = new URL(request.url);
       if (url.pathname === "/" || url.pathname === "/index.html") {
         return caches.match("/", { ignoreSearch: true }) || caches.match("/?m=1");
       }
 
-      // 🔹 Network fetch + cache store
+      // Network fetch + cache store
       return fetch(request)
         .then((networkResponse) => {
           if (!networkResponse || networkResponse.status !== 200) return networkResponse;
@@ -69,7 +66,7 @@ self.addEventListener("fetch", (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // 🔹 Offline fallback: always serve home page
+          // Offline fallback: always serve home page
           return caches.match("/", { ignoreSearch: true }) || caches.match("/?m=1");
         });
     })
