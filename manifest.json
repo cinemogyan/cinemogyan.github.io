@@ -1,7 +1,7 @@
 {
   "name": "MwsGuy",
   "short_name": "MwsGuy",
-  "start_url": "https://www.mwsguy.com/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
