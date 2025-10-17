@@ -1,20 +1,23 @@
 {
   "name": "MwsGuy",
   "short_name": "MwsGuy",
-  "start_url": "https://www.mwsguy.com/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgewfGBc1jMXGYvCFN32UoVjkWYnvdbl5PziZ5vrKBksQBn94IcytbrV-lElMCyZ9p-3mLub2MibNL5y8Rt84c5ZpmvMXI8DzebQh3XSQmPz5HBvtxpKc3NYx4_s8LFFkqCby9M6qpkZkYHbsERMjaCSguFJ86IN9Ub84dlm2aO6sYC7e7CyCh1hBH8Ml4/s1080/Picsart_25-10-04_18-29-15-250.jpg",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
       "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg75J9ba6LQS1kvrV1DS80eGosmUJBAapLY7S0NFf3SCMC9tDg_ZbsgGGuyVg1WV0phfIClXTOLjTSJmXh_6xUhRK-A2EB-YuiFc-g2-jOmbvBtBsQ8-CnQWgAE6S4DFOT420pHxkpUoJ47absLy8sB2CSc4CrUHHHwybVWBpXlZr8Trgjs0fZBCWRO4dg/s3027/MwsGuy.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgewfGBc1jMXGYvCFN32UoVjkWYnvdbl5PziZ5vrKBksQBn94IcytbrV-lElMCyZ9p-3mLub2MibNL5y8Rt84c5ZpmvMXI8DzebQh3XSQmPz5HBvtxpKc3NYx4_s8LFFkqCby9M6qpkZkYHbsERMjaCSguFJ86IN9Ub84dlm2aO6sYC7e7CyCh1hBH8Ml4/s1080/Picsart_25-10-04_18-29-15-250.jpg",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
+
