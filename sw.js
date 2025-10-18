@@ -1,5 +1,5 @@
 // sw.js — MwsGuy Offline Cache Fix
-const CACHE_NAME = "mwsguy-cache-v5";
+const CACHE_NAME = "mwsguy-cache-v1";
 
 const PAGES_TO_CACHE = [
   "/",
