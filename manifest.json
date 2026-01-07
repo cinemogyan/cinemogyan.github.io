@@ -2,7 +2,7 @@
   "name": "MwsGuy",
   "short_name": "MwsGuy",
   "version": "1",
-  "start_url": "/",
+  "start_url": "https://www.mwsguy.com/p/search-movies-worldwide.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
