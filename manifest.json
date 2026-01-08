@@ -2,7 +2,7 @@
   "name": "Movie Saga",
   "short_name": "Movie Saga",
   "version": "1.2",
-  "start_url": "/p/search-movies-worldwide",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
