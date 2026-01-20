@@ -2,7 +2,7 @@
   "name": "Movie Saga",
   "short_name": "Movie Saga",
   "version": "1.2",
-  "start_url": "/",
+  "start_url": "https://www.mwsguy.com/p/search-movies-worldwide.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
